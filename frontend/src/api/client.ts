@@ -8,12 +8,14 @@ export async function apiRequest(
   options: RequestInit = {},
   token?: string
 ) {
-  const headers: HeadersInit = {
-    "Content-Type": "application/json",
-    ...(options.headers || {}),
-  };
-  if (token) headers["Authorization"] = `Bearer ${token}`;
+const headers: Record<string, string> = {
+  "Content-Type": "application/json",
+  ...(options.headers as Record<string, string>),
+};
 
+if (token) {
+  headers["Authorization"] = `Bearer ${token}`;
+}
   const res = await fetch(`${API_BASE}${url}`, {
     ...options,
     headers,
