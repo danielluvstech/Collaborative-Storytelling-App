@@ -1,6 +1,6 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { RootState } from "../../app/store";
 import { apiRequest } from "../../api/client";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import type { RootState } from "../../app/store";
 
 // Example: delete a story
 export const deleteStory = createAsyncThunk<
